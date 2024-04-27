@@ -1,11 +1,12 @@
 import 'package:course_learning/codeeditor.dart';
 import 'package:course_learning/courses.dart';
+import 'package:course_learning/courses/html.dart';
 import 'package:course_learning/profile.dart';
+import 'package:course_learning/widgets/customsearchbar.dart';
 import 'package:course_learning/widgets/homepagescreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter/material.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -19,10 +20,9 @@ class _homePageState extends State<homePage> {
   late int _selectedTab;
 
   @override
-  // int _selectedTab = 0;
   void initState() {
     super.initState();
-    _selectedTab = 0; // Initialize here
+    _selectedTab = 0;
     _pageController = PageController(initialPage: _selectedTab);
   }
 
@@ -31,6 +31,8 @@ class _homePageState extends State<homePage> {
     coursesPage(),
     codeEditor(),
     profilePage(),
+    htmlPage(),
+    customSearchbar(),
   ];
 
   _changeTab(int index) {

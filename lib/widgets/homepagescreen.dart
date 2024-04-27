@@ -69,24 +69,9 @@ class _homePageScreenState extends State<homePageScreen> {
                       ],
                     ),
                   ),
-                  Container(
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(15),
-                          child: Icon(Icons.search),
-                        ),
-                        Text(
-                          'Search here...',
-                          style: TextStyle(color: Colors.black38),
-                        )
-                      ],
-                    ),
-                    height: 50,
-                    width: 415,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15)),
+               
+                  TextField(
+                    decoration: InputDecoration(),
                   )
                 ],
               ),
