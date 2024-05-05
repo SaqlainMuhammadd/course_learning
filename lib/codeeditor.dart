@@ -1,6 +1,3 @@
-import 'package:course_learning/courses.dart';
-import 'package:course_learning/homepage.dart';
-import 'package:course_learning/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
