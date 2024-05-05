@@ -1,5 +1,4 @@
 import 'package:course_learning/homepage.dart';
-import 'package:course_learning/widgets/homepagescreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,14 +14,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Code Mingle',
       theme: ThemeData(
-        textTheme: TextTheme(
-            bodyMedium: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white)),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
-        useMaterial3: true,
-      ),
+          textTheme: TextTheme(
+              bodyMedium: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white)),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+          useMaterial3: true,
+          appBarTheme: AppBarTheme(backgroundColor: Colors.teal)),
       home: homePage(),
     );
   }

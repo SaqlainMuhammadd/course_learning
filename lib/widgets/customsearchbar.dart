@@ -1,19 +1,83 @@
 import 'package:flutter/material.dart';
 
-class customSearchbar extends StatefulWidget {
-  const customSearchbar({super.key});
-
+class SearchScreen extends StatefulWidget {
   @override
-  State<customSearchbar> createState() => _customSearchbarState();
+  _SearchScreenState createState() => _SearchScreenState();
 }
 
-class _customSearchbarState extends State<customSearchbar> {
+class _SearchScreenState extends State<SearchScreen> {
+  List<String> data = [
+    "HTML3",
+    "CSS3",
+    "JavaScript",
+    "Python",
+    "Java",
+    "Flutter",
+    "Web development",
+    "App Development"
+  ];
+  List<String> searchResults = [];
+  String query = '';
+
+  void onQueryChanged(String newQuery) {
+    setState(() {
+      query = newQuery;
+      searchResults = data
+          .where((item) => item.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Center(child: Text('Search your course')),
+        title: Text('Search Screen'),
       ),
+      body: Column(
+        children: [
+          SearchBar(onQueryChanged: onQueryChanged),
+          Expanded(
+            child: ListView.builder(
+              itemCount: searchResults.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(searchResults[index]),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SearchBar extends StatelessWidget {
+  final Function(String) onQueryChanged;
+
+  SearchBar({required this.onQueryChanged});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          height: 90,
+          width: 430,
+          padding: const EdgeInsets.all(16),
+          child: TextField(
+            onChanged: onQueryChanged,
+            decoration: InputDecoration(
+              labelText: 'Search',
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+              prefixIcon: Icon(Icons.search),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

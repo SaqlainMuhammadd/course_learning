@@ -14,6 +14,13 @@ class _BooksPageState extends State<BooksPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text(
+          'Books Shop',
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -23,8 +30,8 @@ class _BooksPageState extends State<BooksPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _buildCourseContainer(
-                  'assets/html.png',
-                  'Learn HTML3',
+                  'assets/AtomicHabits.png',
+                  'Atomic Habits',
                   () => Navigator.push(context,
                       MaterialPageRoute(builder: (context) => htmlPage())),
                 ),
@@ -78,9 +85,9 @@ class _BooksPageState extends State<BooksPage> {
             ),
           ),
           ElevatedButton(
-            onPressed: onPressed,
+            onPressed: () {},
             child: Text(
-              'Buy Now',
+              'Download Now',
               style: TextStyle(fontSize: 16),
             ),
           ),

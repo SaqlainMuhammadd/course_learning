@@ -2,7 +2,6 @@ import 'package:course_learning/codeeditor.dart';
 import 'package:course_learning/courses.dart';
 import 'package:course_learning/courses/html.dart';
 import 'package:course_learning/profile.dart';
-import 'package:course_learning/widgets/customsearchbar.dart';
 import 'package:course_learning/widgets/homepagescreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +31,6 @@ class _homePageState extends State<homePage> {
     codeEditor(),
     profilePage(),
     htmlPage(),
-    customSearchbar(),
   ];
 
   _changeTab(int index) {
