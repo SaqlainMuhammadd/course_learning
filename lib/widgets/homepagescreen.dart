@@ -67,7 +67,7 @@ class _homePageScreenState extends State<homePageScreen> {
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      'Good Morning Zunaira!',
+                      'Good Morning Saqlain!',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),

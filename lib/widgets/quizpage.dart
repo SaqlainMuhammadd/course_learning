@@ -12,10 +12,8 @@ class _quizPageState extends State<quizPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: Colors.amberAccent,
+      appBar: AppBar(
+        title: Text('Code Mingle'),
       ),
     );
   }
