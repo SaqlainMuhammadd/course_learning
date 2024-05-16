@@ -1,4 +1,6 @@
+import 'package:course_learning/courses/css.dart';
 import 'package:course_learning/courses/html.dart';
+import 'package:course_learning/courses/js.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -116,7 +118,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => coursesPage()));
+                                  builder: (context) => cssPage()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -170,7 +172,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => coursesPage()));
+                                  builder: (context) => jsPage()));
                         },
                         child: Text(
                           'Enroll Now',
