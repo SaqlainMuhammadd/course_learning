@@ -1,6 +1,7 @@
 import 'package:course_learning/courses/css.dart';
 import 'package:course_learning/courses/html.dart';
 import 'package:course_learning/courses/js.dart';
+import 'package:course_learning/courses/jsmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

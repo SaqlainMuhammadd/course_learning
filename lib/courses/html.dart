@@ -41,6 +41,9 @@ class _htmlPageState extends State<htmlPage> {
   Widget build(BuildContext context) {
     print("url of current videl $url");
     return Scaffold(
+      appBar: AppBar(
+        title: Text('HTML Course'),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
