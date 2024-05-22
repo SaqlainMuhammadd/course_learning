@@ -1,20 +1,20 @@
-import 'package:course_learning/courses/jsmodel.dart';
+import 'package:course_learning/courses/cssmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class jsPage extends StatefulWidget {
-  const jsPage({super.key});
+class PythonModel extends StatefulWidget {
+  const PythonModel({super.key});
 
   @override
-  State<jsPage> createState() => _jsPageState();
+  State<PythonModel> createState() => _PythonModelState();
 }
 
-class _jsPageState extends State<jsPage> {
+class _PythonModelState extends State<PythonModel> {
   String? url;
   late YoutubePlayerController _controller;
   String? videoId = YoutubePlayer.convertUrlToId(
-      "https://youtu.be/ajdRvxDWH4w?si=NZgMFm2UWgpVyv3R");
+      "https://www.youtube.com/watch?v=M7cOmiSly3Q");
 //
   @override
   void initState() {
@@ -44,7 +44,7 @@ class _jsPageState extends State<jsPage> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
-          'JS Course',
+          'Python Course',
           style: Theme.of(context).textTheme.bodyMedium,
         ),
       ),
@@ -58,13 +58,13 @@ class _jsPageState extends State<jsPage> {
             ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: jsModel.VideoList.length,
+                itemCount: pythonModel.VideoList.length,
                 itemBuilder: (ctx, i) {
                   return InkWell(
                     onTap: () {
                       setState(() {
                         String? videoId = YoutubePlayer.convertUrlToId(
-                            jsModel.VideoList[i].url!);
+                            pythonModel.VideoList[i].url!);
 
                         _controller.load(videoId!);
                       });
@@ -72,13 +72,13 @@ class _jsPageState extends State<jsPage> {
                     child: ListTile(
                       contentPadding: EdgeInsets.all(10),
                       leading: Image.asset(
-                        jsModel.VideoList[i].thumbnail!,
+                        pythonModel.VideoList[i].thumbnail!,
                         height: 100,
                         width: 100,
                         fit: BoxFit.cover,
                       ),
                       title: Text(
-                        jsModel.VideoList[i].tittle!,
+                        pythonModel.VideoList[i].tittle!,
                         style: TextStyle(color: Colors.black, fontSize: 15),
                       ),
                     ),

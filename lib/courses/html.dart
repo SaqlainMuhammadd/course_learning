@@ -1,3 +1,4 @@
+import 'package:course_learning/courses/htmlmodel.dart';
 import 'package:course_learning/widgets/videos_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class _htmlPageState extends State<htmlPage> {
   String? url;
   late YoutubePlayerController _controller;
   String? videoId = YoutubePlayer.convertUrlToId(
-      "https://www.youtube.com/watch?v=M7cOmiSly3Q");
+      "https://youtu.be/Rek0NWPCNOc?si=ow-h7Aslg1II_sbu");
 //
   @override
   void initState() {
@@ -42,7 +43,11 @@ class _htmlPageState extends State<htmlPage> {
     print("url of current videl $url");
     return Scaffold(
       appBar: AppBar(
-        title: Text('HTML Course'),
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text(
+          'HTML Course',
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -54,13 +59,13 @@ class _htmlPageState extends State<htmlPage> {
             ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: VideoModel.VideoList.length,
+                itemCount: HtmlModel.VideoList.length,
                 itemBuilder: (ctx, i) {
                   return InkWell(
                     onTap: () {
                       setState(() {
                         String? videoId = YoutubePlayer.convertUrlToId(
-                            VideoModel.VideoList[i].url!);
+                            HtmlModel.VideoList[i].url!);
 
                         _controller.load(videoId!);
                       });
@@ -68,13 +73,13 @@ class _htmlPageState extends State<htmlPage> {
                     child: ListTile(
                       contentPadding: EdgeInsets.all(10),
                       leading: Image.asset(
-                        VideoModel.VideoList[i].thumbnail!,
+                        HtmlModel.VideoList[i].thumbnail!,
                         height: 100,
                         width: 100,
                         fit: BoxFit.cover,
                       ),
                       title: Text(
-                        VideoModel.VideoList[i].tittle!,
+                        HtmlModel.VideoList[i].tittle!,
                         style: TextStyle(color: Colors.black, fontSize: 15),
                       ),
                     ),

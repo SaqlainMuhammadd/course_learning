@@ -324,7 +324,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => coursesPage()));
+                                  builder: (context) => jsPage()));
                         },
                         child: Text(
                           'Enroll Now',
