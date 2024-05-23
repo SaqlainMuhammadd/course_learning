@@ -1,6 +1,10 @@
+import 'package:course_learning/courses/charp.dart';
+import 'package:course_learning/courses/cplusplus.dart';
 import 'package:course_learning/courses/css.dart';
+import 'package:course_learning/courses/flutter.dart';
 import 'package:course_learning/courses/html.dart';
 import 'package:course_learning/courses/js.dart';
+import 'package:course_learning/courses/python.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -275,7 +279,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => coursesPage()));
+                                  builder: (context) => pythonPage()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -324,7 +328,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => jsPage()));
+                                  builder: (context) => flutterModel()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -378,7 +382,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => coursesPage()));
+                                  builder: (context) => csharpPage()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -427,7 +431,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => coursesPage()));
+                                  builder: (context) => cplusplusPage()));
                         },
                         child: Text(
                           'Enroll Now',

@@ -1,16 +1,17 @@
 import 'package:course_learning/courses/fluttermodel.dart';
+import 'package:course_learning/courses/pythonmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class FlutterModel extends StatefulWidget {
-  const FlutterModel({super.key});
+class flutterModel extends StatefulWidget {
+  const flutterModel({super.key});
 
   @override
-  State<FlutterModel> createState() => _FlutterModelState();
+  State<flutterModel> createState() => _flutterModelState();
 }
 
-class _FlutterModelState extends State<FlutterModel> {
+class _flutterModelState extends State<flutterModel> {
   String? url;
   late YoutubePlayerController _controller;
   String? videoId = YoutubePlayer.convertUrlToId(
@@ -44,7 +45,7 @@ class _FlutterModelState extends State<FlutterModel> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
-          'JS Course',
+          'Flutter Course',
           style: Theme.of(context).textTheme.bodyMedium,
         ),
       ),
@@ -58,13 +59,13 @@ class _FlutterModelState extends State<FlutterModel> {
             ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: flutterModel.VideoList.length,
+                itemCount: FlutterModel.VideoList.length,
                 itemBuilder: (ctx, i) {
                   return InkWell(
                     onTap: () {
                       setState(() {
                         String? videoId = YoutubePlayer.convertUrlToId(
-                            flutterModel.VideoList[i].url!);
+                            FlutterModel.VideoList[i].url!);
 
                         _controller.load(videoId!);
                       });
@@ -72,13 +73,13 @@ class _FlutterModelState extends State<FlutterModel> {
                     child: ListTile(
                       contentPadding: EdgeInsets.all(10),
                       leading: Image.asset(
-                        flutterModel.VideoList[i].thumbnail!,
+                        FlutterModel.VideoList[i].thumbnail!,
                         height: 100,
                         width: 100,
                         fit: BoxFit.cover,
                       ),
                       title: Text(
-                        flutterModel.VideoList[i].tittle!,
+                        FlutterModel.VideoList[i].tittle!,
                         style: TextStyle(color: Colors.black, fontSize: 15),
                       ),
                     ),

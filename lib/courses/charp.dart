@@ -1,20 +1,20 @@
-import 'package:course_learning/courses/htmlmodel.dart';
+import 'package:course_learning/courses/csharpmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class htmlPage extends StatefulWidget {
-  const htmlPage({super.key});
+class csharpPage extends StatefulWidget {
+  const csharpPage({super.key});
 
   @override
-  State<htmlPage> createState() => _htmlPageState();
+  State<csharpPage> createState() => _csharpPageState();
 }
 
-class _htmlPageState extends State<htmlPage> {
+class _csharpPageState extends State<csharpPage> {
   String? url;
   late YoutubePlayerController _controller;
   String? videoId = YoutubePlayer.convertUrlToId(
-      "https://youtu.be/Rek0NWPCNOc?si=ow-h7Aslg1II_sbu");
+      "https://youtu.be/ICiTW4-5TmY?si=aLbyto338LSGPGNw");
 //
   @override
   void initState() {
@@ -44,7 +44,7 @@ class _htmlPageState extends State<htmlPage> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
-          'HTML Course',
+          'C# Course',
           style: Theme.of(context).textTheme.bodyMedium,
         ),
       ),
@@ -58,13 +58,13 @@ class _htmlPageState extends State<htmlPage> {
             ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: HtmlModel.VideoList.length,
+                itemCount: CsharpModel.VideoList.length,
                 itemBuilder: (ctx, i) {
                   return InkWell(
                     onTap: () {
                       setState(() {
                         String? videoId = YoutubePlayer.convertUrlToId(
-                            HtmlModel.VideoList[i].url!);
+                            CsharpModel.VideoList[i].url!);
 
                         _controller.load(videoId!);
                       });
@@ -72,13 +72,13 @@ class _htmlPageState extends State<htmlPage> {
                     child: ListTile(
                       contentPadding: EdgeInsets.all(10),
                       leading: Image.asset(
-                        HtmlModel.VideoList[i].thumbnail!,
+                        CsharpModel.VideoList[i].thumbnail!,
                         height: 100,
                         width: 100,
                         fit: BoxFit.cover,
                       ),
                       title: Text(
-                        HtmlModel.VideoList[i].tittle!,
+                        CsharpModel.VideoList[i].tittle!,
                         style: TextStyle(color: Colors.black, fontSize: 15),
                       ),
                     ),

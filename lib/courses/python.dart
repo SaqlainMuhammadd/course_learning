@@ -1,20 +1,20 @@
-import 'package:course_learning/courses/cssmodel.dart';
+import 'package:course_learning/courses/pythonmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class PythonModel extends StatefulWidget {
-  const PythonModel({super.key});
+class pythonPage extends StatefulWidget {
+  const pythonPage({super.key});
 
   @override
-  State<PythonModel> createState() => _PythonModelState();
+  State<pythonPage> createState() => _pythonPageState();
 }
 
-class _PythonModelState extends State<PythonModel> {
+class _pythonPageState extends State<pythonPage> {
   String? url;
   late YoutubePlayerController _controller;
   String? videoId = YoutubePlayer.convertUrlToId(
-      "https://www.youtube.com/watch?v=M7cOmiSly3Q");
+      "https://youtu.be/t2_Q2BRzeEE?si=zZxapF0Ai38mdhKV");
 //
   @override
   void initState() {
@@ -58,13 +58,13 @@ class _PythonModelState extends State<PythonModel> {
             ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: pythonModel.VideoList.length,
+                itemCount: PythonModel.VideoList.length,
                 itemBuilder: (ctx, i) {
                   return InkWell(
                     onTap: () {
                       setState(() {
                         String? videoId = YoutubePlayer.convertUrlToId(
-                            pythonModel.VideoList[i].url!);
+                            PythonModel.VideoList[i].url!);
 
                         _controller.load(videoId!);
                       });
@@ -72,13 +72,13 @@ class _PythonModelState extends State<PythonModel> {
                     child: ListTile(
                       contentPadding: EdgeInsets.all(10),
                       leading: Image.asset(
-                        pythonModel.VideoList[i].thumbnail!,
+                        PythonModel.VideoList[i].thumbnail!,
                         height: 100,
                         width: 100,
                         fit: BoxFit.cover,
                       ),
                       title: Text(
-                        pythonModel.VideoList[i].tittle!,
+                        PythonModel.VideoList[i].tittle!,
                         style: TextStyle(color: Colors.black, fontSize: 15),
                       ),
                     ),
