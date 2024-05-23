@@ -1,20 +1,20 @@
-import 'package:course_learning/courses/cssmodel.dart';
+import 'package:course_learning/courses/dartmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class cssPage extends StatefulWidget {
-  const cssPage({super.key});
+class dartPage extends StatefulWidget {
+  const dartPage({super.key});
 
   @override
-  State<cssPage> createState() => _cssPageState();
+  State<dartPage> createState() => _dartPageState();
 }
 
-class _cssPageState extends State<cssPage> {
+class _dartPageState extends State<dartPage> {
   String? url;
   late YoutubePlayerController _controller;
   String? videoId = YoutubePlayer.convertUrlToId(
-      "https://youtu.be/sqJ6xZ9mUwE?si=99pp8m7zhYzpPvJ_");
+      "https://youtu.be/bRm9nswlDrc?si=2yY8c2UR01pvLTiq");
 //
   @override
   void initState() {
@@ -44,7 +44,7 @@ class _cssPageState extends State<cssPage> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
-          'CSS Course',
+          'HTML Course',
           style: Theme.of(context).textTheme.bodyMedium,
         ),
       ),
@@ -58,13 +58,13 @@ class _cssPageState extends State<cssPage> {
             ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: CssModel.VideoList.length,
+                itemCount: DartModel.VideoList.length,
                 itemBuilder: (ctx, i) {
                   return InkWell(
                     onTap: () {
                       setState(() {
                         String? videoId = YoutubePlayer.convertUrlToId(
-                            CssModel.VideoList[i].url!);
+                            DartModel.VideoList[i].url!);
 
                         _controller.load(videoId!);
                       });
@@ -72,13 +72,13 @@ class _cssPageState extends State<cssPage> {
                     child: ListTile(
                       contentPadding: EdgeInsets.all(10),
                       leading: Image.asset(
-                        CssModel.VideoList[i].thumbnail!,
+                        DartModel.VideoList[i].thumbnail!,
                         height: 100,
                         width: 100,
                         fit: BoxFit.cover,
                       ),
                       title: Text(
-                        CssModel.VideoList[i].tittle!,
+                        DartModel.VideoList[i].tittle!,
                         style: TextStyle(color: Colors.black, fontSize: 15),
                       ),
                     ),
