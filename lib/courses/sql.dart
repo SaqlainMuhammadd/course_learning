@@ -1,4 +1,3 @@
-import 'package:course_learning/courses/dartmodel.dart';
 import 'package:course_learning/courses/sqlmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
