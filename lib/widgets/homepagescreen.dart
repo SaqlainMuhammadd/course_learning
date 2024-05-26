@@ -1,9 +1,10 @@
 import 'package:course_learning/auth/enroll.dart';
 import 'package:course_learning/booksshop/books.dart';
 import 'package:course_learning/courses.dart';
-import 'package:course_learning/quiz/flutter.dart';
+import 'package:course_learning/quiz/quiz.dart';
 import 'package:course_learning/widgets/category.dart';
 import 'package:course_learning/widgets/customsearchbar.dart';
+import 'package:course_learning/widgets/roadmap.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -123,7 +124,7 @@ class _homePageScreenState extends State<homePageScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       InkWell(
-                        onTap: () => categoryPage(),
+                        onTap: () => CategoriesPage(),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
@@ -144,7 +145,7 @@ class _homePageScreenState extends State<homePageScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 6),
                                 child: Text(
-                                  'Category',
+                                  'Categories',
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 14),
                                 ),
@@ -199,7 +200,13 @@ class _homePageScreenState extends State<homePageScreen> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: InkWell(
-                          onTap: () => QuizPage(),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => quizPage(),
+                                ));
+                          },
                           child: Column(
                             children: [
                               Container(
@@ -306,32 +313,41 @@ class _homePageScreenState extends State<homePageScreen> {
                       SizedBox(
                         width: 30,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            Container(
-                              child: Icon(
-                                Icons.code,
-                                size: 40,
-                                color: Colors.white,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RoadmapPage(),
+                              ));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Container(
+                                child: Icon(
+                                  Icons.payment_sharp,
+                                  size: 40,
+                                  color: Colors.white,
+                                ),
+                                height: 70,
+                                width: 70,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.green,
+                                ),
                               ),
-                              height: 70,
-                              width: 70,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.green,
+                              Padding(
+                                padding: const EdgeInsets.only(top: 6),
+                                child: Text(
+                                  'RoadMap',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 6),
-                              child: Text(
-                                'Code Editor',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 14),
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],

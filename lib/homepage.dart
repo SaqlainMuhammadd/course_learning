@@ -1,8 +1,8 @@
-import 'package:course_learning/codeeditor.dart';
 import 'package:course_learning/courses.dart';
 import 'package:course_learning/courses/html.dart';
 import 'package:course_learning/profile.dart';
 import 'package:course_learning/widgets/homepagescreen.dart';
+import 'package:course_learning/widgets/roadmap.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -28,7 +28,7 @@ class _homePageState extends State<homePage> {
   List _pages = [
     homePageScreen(),
     coursesPage(),
-    codeEditor(),
+    RoadmapPage(),
     profilePage(),
     htmlPage(),
   ];
@@ -53,7 +53,7 @@ class _homePageState extends State<homePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.menu_book_outlined), label: "Courses"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.code_off_outlined), label: "Code Editor"),
+              icon: Icon(Icons.payment_sharp), label: "RoadMap"),
           BottomNavigationBarItem(
               icon: Icon(Icons.person_3_outlined), label: "Profile"),
         ],

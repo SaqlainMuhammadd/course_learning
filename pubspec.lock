@@ -33,6 +33,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  code_editor:
+    dependency: "direct main"
+    description:
+      name: code_editor
+      sha256: "491976f97328764b6a6ef7b2db287def1ee81046cc447ff150bfd0fb668a728e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   collection:
     dependency: transitive
     description:
@@ -78,6 +86,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_highlight:
+    dependency: transitive
+    description:
+      name: flutter_highlight
+      sha256: "7b96333867aa07e122e245c033b8ad622e4e3a42a1a2372cbb098a2541d8782c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.0"
   flutter_inappwebview:
     dependency: transitive
     description:
@@ -152,6 +168,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome_flutter:
+    dependency: transitive
+    description:
+      name: font_awesome_flutter
+      sha256: "275ff26905134bcb59417cf60ad979136f1f8257f2f449914b2c3e05bbb4cd6f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "10.7.0"
   google_fonts:
     dependency: "direct main"
     description:
@@ -160,6 +184,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.2.1"
+  highlight:
+    dependency: transitive
+    description:
+      name: highlight
+      sha256: "5353a83ffe3e3eca7df0abfb72dcf3fa66cc56b953728e7113ad4ad88497cf21"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.0"
+  highlight_text:
+    dependency: "direct main"
+    description:
+      name: highlight_text
+      sha256: "74806039a02e65e5aef9bb27c2df42b8694700c389ec75b733eb2ac53a84c606"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.7.0"
   http:
     dependency: transitive
     description:

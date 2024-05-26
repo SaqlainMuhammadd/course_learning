@@ -7,19 +7,51 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   int _currentQuestionIndex = 0;
-  List<String> _selectedAnswers = [];
+  List<String> _selectedAnswers = List.filled(50, '');
+  List<bool> _correctAnswers = List.filled(50, false);
   List<Question> _questions = [
     Question(
-      questionText: 'What is the capital of France?',
-      options: ['Paris', 'London', 'Berlin', 'Madrid'],
-      correctAnswer: 'Paris',
+      questionText: 'What is Flutter?',
+      options: [
+        'A mobile development framework by Google',
+        'A programming language',
+        'A database',
+        'A cloud service'
+      ],
+      correctAnswer: 'A mobile development framework by Google',
     ),
     Question(
-      questionText: 'Which planet is known as the Red Planet?',
-      options: ['Earth', 'Mars', 'Jupiter', 'Saturn'],
-      correctAnswer: 'Mars',
+      questionText: 'Which programming language is used by Flutter?',
+      options: ['Java', 'Kotlin', 'Dart', 'Swift'],
+      correctAnswer: 'Dart',
     ),
-    // Add more questions here
+    Question(
+      questionText: 'Who developed Flutter?',
+      options: ['Apple', 'Google', 'Facebook', 'Microsoft'],
+      correctAnswer: 'Google',
+    ),
+    Question(
+      questionText: 'What is the command to create a new Flutter project?',
+      options: [
+        'flutter start project',
+        'flutter create project',
+        'flutter new project',
+        'flutter create'
+      ],
+      correctAnswer: 'flutter create',
+    ),
+    Question(
+      questionText: 'What is a widget in Flutter?',
+      options: [
+        'A UI element',
+        'A database',
+        'A programming language',
+        'A server'
+      ],
+      correctAnswer: 'A UI element',
+    ),
+    // Add more questions here up to 50
+    // ... Add remaining questions
   ];
 
   void _nextQuestion() {
@@ -53,7 +85,8 @@ class _QuizPageState extends State<QuizPage> {
               Navigator.of(context).pop();
               setState(() {
                 _currentQuestionIndex = 0;
-                _selectedAnswers = [];
+                _selectedAnswers = List.filled(50, '');
+                _correctAnswers = List.filled(50, false);
               });
             },
             child: Text('Restart'),
@@ -67,55 +100,72 @@ class _QuizPageState extends State<QuizPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz Page'),
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text(
+          'Flutter Quiz',
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              'Question ${_currentQuestionIndex + 1}/${_questions.length}',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 20),
-            Text(
-              _questions[_currentQuestionIndex].questionText,
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 20),
-            ..._questions[_currentQuestionIndex].options.map((option) {
-              return RadioListTile<String>(
-                title: Text(option),
-                value: option,
-                groupValue: _selectedAnswers.length > _currentQuestionIndex
-                    ? _selectedAnswers[_currentQuestionIndex]
-                    : null,
-                onChanged: (value) {
-                  setState(() {
-                    if (_selectedAnswers.length > _currentQuestionIndex) {
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text(
+                'Question ${_currentQuestionIndex + 1}/${_questions.length}',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.teal),
+              ),
+              SizedBox(height: 20),
+              Text(
+                _questions[_currentQuestionIndex].questionText,
+                style: TextStyle(fontSize: 18, color: Colors.teal),
+              ),
+              SizedBox(height: 20),
+              ..._questions[_currentQuestionIndex].options.map((option) {
+                return RadioListTile<String>(
+                  title: Text(
+                    option,
+                    style: TextStyle(
+                      color: _selectedAnswers[_currentQuestionIndex] == option
+                          ? (_questions[_currentQuestionIndex].correctAnswer ==
+                                  option
+                              ? Colors.green
+                              : Colors.red)
+                          : Colors.black,
+                    ),
+                  ),
+                  value: option,
+                  groupValue: _selectedAnswers[_currentQuestionIndex],
+                  onChanged: (value) {
+                    setState(() {
                       _selectedAnswers[_currentQuestionIndex] = value!;
-                    } else {
-                      _selectedAnswers.add(value!);
-                    }
-                  });
-                },
-              );
-            }).toList(),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _nextQuestion,
-              child: Text(_currentQuestionIndex < _questions.length - 1
-                  ? 'Next'
-                  : 'Submit'),
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(vertical: 16.0),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+                      _correctAnswers[_currentQuestionIndex] =
+                          _questions[_currentQuestionIndex].correctAnswer ==
+                              value;
+                    });
+                  },
+                );
+              }).toList(),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: _nextQuestion,
+                child: Text(_currentQuestionIndex < _questions.length - 1
+                    ? 'Next'
+                    : 'Submit'),
+                style: ElevatedButton.styleFrom(
+                  // primary: Colors.teal,
+                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
