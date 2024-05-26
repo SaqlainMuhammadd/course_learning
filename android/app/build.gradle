@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.example.course_learning"
-    compileSdk flutter.compileSdkVersion
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -64,4 +64,11 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+// apply plugin: 'com.android.application'
+// apply plugin: 'com.google.gms.google-services'
+
+dependencies {
+    // implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    // implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // implementation("com.google.firebase:firebase-analytics")
+}

@@ -1,3 +1,4 @@
+import 'package:course_learning/auth/enroll.dart';
 import 'package:course_learning/courses/charp.dart';
 import 'package:course_learning/courses/cplusplus.dart';
 import 'package:course_learning/courses/css.dart';
@@ -76,7 +77,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => htmlPage()));
+                                  builder: (context) => EnrollmentForm()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -125,7 +126,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => cssPage()));
+                                  builder: (context) => EnrollmentForm()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -179,7 +180,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => jsPage()));
+                                  builder: (context) => EnrollmentForm()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -228,7 +229,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => javaPage()));
+                                  builder: (context) => EnrollmentForm()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -282,7 +283,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => pythonPage()));
+                                  builder: (context) => EnrollmentForm()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -331,7 +332,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => flutterModel()));
+                                  builder: (context) => EnrollmentForm()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -385,7 +386,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => csharpPage()));
+                                  builder: (context) => EnrollmentForm()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -434,7 +435,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => cplusplusPage()));
+                                  builder: (context) => EnrollmentForm()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -488,7 +489,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => dartPage()));
+                                  builder: (context) => EnrollmentForm()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -537,7 +538,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => sqlPage()));
+                                  builder: (context) => EnrollmentForm()));
                         },
                         child: Text(
                           'Enroll Now',

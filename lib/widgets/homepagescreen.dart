@@ -1,10 +1,9 @@
+import 'package:course_learning/auth/enroll.dart';
 import 'package:course_learning/booksshop/books.dart';
 import 'package:course_learning/courses.dart';
-import 'package:course_learning/courses/flutter.dart';
-import 'package:course_learning/courses/python.dart';
+import 'package:course_learning/quiz/flutter.dart';
 import 'package:course_learning/widgets/category.dart';
 import 'package:course_learning/widgets/customsearchbar.dart';
-import 'package:course_learning/widgets/quizpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -200,7 +199,7 @@ class _homePageScreenState extends State<homePageScreen> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: InkWell(
-                          onTap: () => quizPage(),
+                          onTap: () => QuizPage(),
                           child: Column(
                             children: [
                               Container(
@@ -402,7 +401,7 @@ class _homePageScreenState extends State<homePageScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => pythonPage()));
+                                      builder: (context) => EnrollmentForm()));
                             },
                             child: Text(
                               'Enroll Now',
@@ -444,7 +443,7 @@ class _homePageScreenState extends State<homePageScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => flutterModel()));
+                                      builder: (context) => EnrollmentForm()));
                             },
                             child: Text(
                               'Enroll Now',
