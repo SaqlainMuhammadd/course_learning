@@ -302,7 +302,7 @@ class _homePageScreenState extends State<homePageScreen> {
                             Padding(
                               padding: const EdgeInsets.only(top: 6),
                               child: Text(
-                                'Exercises',
+                                'Achievements',
                                 style: TextStyle(
                                     color: Colors.black, fontSize: 14),
                               ),
