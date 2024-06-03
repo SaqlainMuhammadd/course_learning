@@ -39,7 +39,11 @@ class CategoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Learning Categories'),
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text(
+          'Learning Categories',
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
       ),
       body: ListView.builder(
         itemCount: categories.length,

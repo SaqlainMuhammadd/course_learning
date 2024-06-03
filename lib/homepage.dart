@@ -29,7 +29,7 @@ class _homePageState extends State<homePage> {
     homePageScreen(),
     coursesPage(),
     RoadmapPage(),
-    profilePage(),
+    ProfilePage(),
     htmlPage(),
   ];
 

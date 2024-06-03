@@ -12,10 +12,10 @@ class HtmlModel {
   });
 
   static List<HtmlModel> VideoList = [
-    HtmlModel(
-        thumbnail: "assets/html1.jpg",
-        url: "https://youtu.be/Rek0NWPCNOc?si=ow-h7Aslg1II_sbu",
-        tittle: "HTML Course | From Beginners to Advance Level | Lecture 1"),
+    // HtmlModel(
+    //     thumbnail: "assets/html1.jpg",
+    //     url: "https://youtu.be/Rek0NWPCNOc?si=ow-h7Aslg1II_sbu",
+    //     tittle: "HTML Course | From Beginners to Advance Level | Lecture 1"),
     HtmlModel(
         thumbnail: "assets/html1.jpg",
         url: "https://youtu.be/Rek0NWPCNOc?si=ow-h7Aslg1II_sbu",

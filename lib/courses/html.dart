@@ -1,34 +1,32 @@
-import 'package:course_learning/courses/htmlmodel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:course_learning/courses/htmlmodel.dart';
 
 class htmlPage extends StatefulWidget {
-  const htmlPage({super.key});
+  const htmlPage({Key? key}) : super(key: key);
 
   @override
-  State<htmlPage> createState() => _htmlPageState();
+  _htmlPageState createState() => _htmlPageState();
 }
 
 class _htmlPageState extends State<htmlPage> {
-  String? url;
   late YoutubePlayerController _controller;
-  String? videoId = YoutubePlayer.convertUrlToId(
-      "https://youtu.be/Rek0NWPCNOc?si=ow-h7Aslg1II_sbu");
-//
+  int totalVideos = HtmlModel.VideoList.length; // Total number of videos
+  int videosWatched = 0; // Number of videos watched
+  bool courseCompleted = false;
+
   @override
   void initState() {
     super.initState();
-    if (videoId != null) {
-      _controller = YoutubePlayerController(
-        initialVideoId: videoId!,
-        flags: YoutubePlayerFlags(
-          autoPlay: false,
-        ),
-      );
-    } else {
-      print("video id is null");
-    }
+    // Initialize the YoutubePlayerController
+    _controller = YoutubePlayerController(
+      initialVideoId: YoutubePlayer.convertUrlToId(
+        HtmlModel.VideoList.first.url!,
+      )!,
+      flags: YoutubePlayerFlags(
+        autoPlay: false,
+      ),
+    );
   }
 
   @override
@@ -37,15 +35,26 @@ class _htmlPageState extends State<htmlPage> {
     super.dispose();
   }
 
+  double calculateProgress() {
+    return (videosWatched / totalVideos) * 100;
+  }
+
+  void generateCertificate() {
+    // Generate certificate with user's name
+    // For demonstration purposes, we'll just print a message
+    print('Certificate generated for User');
+    setState(() {
+      courseCompleted = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    print("url of current videl $url");
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
         title: Text(
           'HTML Course',
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: TextStyle(color: Colors.white),
         ),
       ),
       body: SingleChildScrollView(
@@ -54,38 +63,73 @@ class _htmlPageState extends State<htmlPage> {
             YoutubePlayer(
               controller: _controller,
               showVideoProgressIndicator: true,
+              onEnded: (_) {
+                setState(() {
+                  videosWatched++;
+                  if (videosWatched == totalVideos) {
+                    generateCertificate();
+                  }
+                });
+              },
+            ),
+            LinearProgressIndicator(
+              value: calculateProgress() / 100,
+              backgroundColor: Colors.teal[300],
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.teal),
             ),
             ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: HtmlModel.VideoList.length,
-                itemBuilder: (ctx, i) {
-                  return InkWell(
-                    onTap: () {
-                      setState(() {
-                        String? videoId = YoutubePlayer.convertUrlToId(
-                            HtmlModel.VideoList[i].url!);
-
-                        _controller.load(videoId!);
-                      });
-                    },
-                    child: ListTile(
-                      contentPadding: EdgeInsets.all(10),
-                      leading: Image.asset(
-                        HtmlModel.VideoList[i].thumbnail!,
-                        height: 100,
-                        width: 100,
-                        fit: BoxFit.cover,
-                      ),
-                      title: Text(
-                        HtmlModel.VideoList[i].tittle!,
-                        style: TextStyle(color: Colors.black, fontSize: 15),
-                      ),
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: HtmlModel.VideoList.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: Image.asset(
+                    HtmlModel.VideoList[index].thumbnail!,
+                    height: 100,
+                    width: 100,
+                    fit: BoxFit.cover,
+                  ),
+                  title: Text(
+                    HtmlModel.VideoList[index].tittle!,
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                  onTap: () {
+                    setState(() {
+                      String? videoId = YoutubePlayer.convertUrlToId(
+                        HtmlModel.VideoList[index].url!,
+                      );
+                      _controller.load(videoId!);
+                    });
+                  },
+                );
+              },
+            ),
+            if (courseCompleted)
+              ElevatedButton(
+                onPressed: () {
+                  // Handle viewing the certificate
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Viewing Certificate'),
                     ),
                   );
-                })
+                },
+                child: Text('View Certificate'),
+              ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'Course Progress: ${calculateProgress().toStringAsFixed(2)}%',
+              ),
+            ),
+          );
+        },
+        child: Icon(Icons.percent),
       ),
     );
   }

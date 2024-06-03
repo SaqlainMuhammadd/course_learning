@@ -33,7 +33,11 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('Search Screen'),
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text(
+          'Search Screen',
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
       ),
       body: Column(
         children: [

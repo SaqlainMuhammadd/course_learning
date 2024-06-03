@@ -1,6 +1,9 @@
+import 'package:course_learning/Notification/notification.dart';
 import 'package:course_learning/auth/enroll.dart';
 import 'package:course_learning/booksshop/books.dart';
 import 'package:course_learning/courses.dart';
+import 'package:course_learning/form/discussion.dart';
+import 'package:course_learning/profile.dart';
 import 'package:course_learning/quiz/quiz.dart';
 import 'package:course_learning/widgets/category.dart';
 import 'package:course_learning/widgets/customsearchbar.dart';
@@ -35,26 +38,42 @@ class _homePageScreenState extends State<homePageScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.table_chart,
-                          size: 35,
-                          color: Colors.white,
-                        ),
+                        IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CategoriesPage(),
+                                  ));
+                            },
+                            icon: Icon(
+                              Icons.menu,
+                              size: 40,
+                              color: Colors.white,
+                            )),
                         SizedBox(
-                          width: 100,
+                          width: 70,
                         ),
                         Text(
                           'Code Mingle',
                           style: TextStyle(fontSize: 25),
                         ),
                         SizedBox(
-                          width: 100,
+                          width: 70,
                         ),
-                        Icon(
-                          Icons.notifications,
-                          size: 35,
-                          color: Colors.white,
-                        ),
+                        IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => NotificationPage(),
+                                  ));
+                            },
+                            icon: Icon(
+                              Icons.notifications_none_outlined,
+                              color: Colors.white,
+                              size: 35,
+                            )),
                       ],
                     ),
                     height: 75,
@@ -120,18 +139,27 @@ class _homePageScreenState extends State<homePageScreen> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
+                  SizedBox(
+                    width: 100,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       InkWell(
-                        onTap: () => CategoriesPage(),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DiscussionScreen(),
+                              ));
+                        },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: [
                               Container(
                                 child: Icon(
-                                  Icons.category,
+                                  Icons.chat_outlined,
                                   size: 40,
                                   color: Colors.white,
                                 ),
@@ -139,13 +167,13 @@ class _homePageScreenState extends State<homePageScreen> {
                                 width: 70,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: Colors.amber,
+                                  color: Colors.yellow.shade900,
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 6),
                                 child: Text(
-                                  'Categories',
+                                  'Form',
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 14),
                                 ),
@@ -155,7 +183,7 @@ class _homePageScreenState extends State<homePageScreen> {
                         ),
                       ),
                       SizedBox(
-                        width: 30,
+                        width: 43,
                       ),
                       InkWell(
                         onTap: () {
@@ -195,7 +223,7 @@ class _homePageScreenState extends State<homePageScreen> {
                         ),
                       ),
                       SizedBox(
-                        width: 30,
+                        width: 43,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -282,32 +310,41 @@ class _homePageScreenState extends State<homePageScreen> {
                       SizedBox(
                         width: 30,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            Container(
-                              child: Icon(
-                                Icons.quiz,
-                                size: 40,
-                                color: Colors.white,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AchievementsPage(),
+                              ));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Container(
+                                child: Icon(
+                                  Icons.architecture,
+                                  size: 40,
+                                  color: Colors.white,
+                                ),
+                                height: 70,
+                                width: 70,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.purple.shade600,
+                                ),
                               ),
-                              height: 70,
-                              width: 70,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.purple,
+                              Padding(
+                                padding: const EdgeInsets.only(top: 6),
+                                child: Text(
+                                  'Achievements',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 6),
-                              child: Text(
-                                'Achievements',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 14),
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(

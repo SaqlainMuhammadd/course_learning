@@ -77,7 +77,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EnrollmentForm()));
+                                  builder: (context) => htmlPage()));
                         },
                         child: Text(
                           'Enroll Now',
