@@ -1,3 +1,4 @@
+import 'package:course_learning/auth/login.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -16,7 +17,16 @@ class SignUpPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(height: 80),
+                  SizedBox(height: 30),
+                  Container(
+                    height: 135,
+                    width: 300,
+                    child: Image.asset(
+                      'assets/authlogo.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(height: 20),
                   Text(
                     'Sign Up',
                     style: TextStyle(
@@ -78,7 +88,11 @@ class SignUpPage extends StatelessWidget {
                             width: double.infinity,
                             child: ElevatedButton(
                               onPressed: () {
-                                // Handle sign-up logic here
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => LoginPage(),
+                                    ));
                               },
                               style: ElevatedButton.styleFrom(
                                 padding: EdgeInsets.symmetric(vertical: 16.0),

@@ -1,5 +1,6 @@
 import 'package:course_learning/auth/forgetpass.dart';
 import 'package:course_learning/auth/signup.dart';
+import 'package:course_learning/widgets/homepagescreen.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -17,7 +18,16 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(height: 80),
+                SizedBox(height: 30),
+                Container(
+                  height: 135,
+                  width: 300,
+                  child: Image.asset(
+                    'assets/authlogo.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                SizedBox(height: 20),
                 Text(
                   'Login',
                   style: TextStyle(
@@ -56,7 +66,11 @@ class LoginPage extends StatelessWidget {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              // Handle login logic here
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => homePageScreen(),
+                                  ));
                             },
                             style: ElevatedButton.styleFrom(
                               padding: EdgeInsets.symmetric(vertical: 16.0),

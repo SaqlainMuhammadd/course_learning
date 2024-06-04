@@ -1,4 +1,7 @@
+import 'package:course_learning/auth/login.dart';
+import 'package:course_learning/auth/signup.dart';
 import 'package:course_learning/homepage.dart';
+import 'package:course_learning/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
           useMaterial3: true,
           appBarTheme: AppBarTheme(backgroundColor: Colors.teal)),
-      home: homePage(),
+      home: SplashScreen(),
     );
   }
 }

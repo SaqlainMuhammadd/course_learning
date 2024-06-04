@@ -41,7 +41,6 @@ class _htmlPageState extends State<htmlPage> {
 
   void generateCertificate() {
     // Generate certificate with user's name
-    // For demonstration purposes, we'll just print a message
     print('Certificate generated for User');
     setState(() {
       courseCompleted = true;
@@ -52,6 +51,7 @@ class _htmlPageState extends State<htmlPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         title: Text(
           'HTML Course',
           style: TextStyle(color: Colors.white),
