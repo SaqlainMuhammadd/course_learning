@@ -1,6 +1,6 @@
 import 'package:course_learning/auth/forgetpass.dart';
 import 'package:course_learning/auth/signup.dart';
-import 'package:course_learning/widgets/homepagescreen.dart';
+import 'package:course_learning/homepage.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -11,7 +11,7 @@ class LoginPage extends StatelessWidget {
         fit: StackFit.expand,
         children: <Widget>[
           Container(
-            color: Colors.teal, // Background color
+            color: Colors.teal,
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -69,7 +69,7 @@ class LoginPage extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => homePageScreen(),
+                                    builder: (context) => homePage(),
                                   ));
                             },
                             style: ElevatedButton.styleFrom(

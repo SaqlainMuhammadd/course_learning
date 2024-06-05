@@ -42,7 +42,7 @@ dependencies:
   code_editor: ^2.1.0
   highlight_text: ^1.7.0
   provider: ^6.0.0
-
+  
 
 dev_dependencies:
   flutter_test:

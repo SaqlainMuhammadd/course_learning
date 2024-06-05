@@ -64,11 +64,5 @@ flutter {
     source '../..'
 }
 
-// apply plugin: 'com.android.application'
-// apply plugin: 'com.google.gms.google-services'
 
-dependencies {
-    // implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
-    // implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    // implementation("com.google.firebase:firebase-analytics")
-}
+dependencies {}
