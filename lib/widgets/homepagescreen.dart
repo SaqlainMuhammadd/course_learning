@@ -4,7 +4,7 @@ import 'package:course_learning/booksshop/books.dart';
 import 'package:course_learning/courses.dart';
 import 'package:course_learning/form/discussion.dart';
 import 'package:course_learning/profile.dart';
-import 'package:course_learning/quiz/quiz.dart';
+import 'package:course_learning/quiz/quizpage.dart';
 import 'package:course_learning/widgets/category.dart';
 import 'package:course_learning/widgets/customsearchbar.dart';
 import 'package:course_learning/widgets/roadmap.dart';

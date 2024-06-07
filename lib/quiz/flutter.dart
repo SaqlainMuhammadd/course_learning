@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class QuizPage extends StatefulWidget {
+class flutterQuizPage extends StatefulWidget {
   @override
-  _QuizPageState createState() => _QuizPageState();
+  _flutterQuizPageState createState() => _flutterQuizPageState();
 }
 
-class _QuizPageState extends State<QuizPage> {
+class _flutterQuizPageState extends State<flutterQuizPage> {
   int _currentQuestionIndex = 0;
   List<String> _selectedAnswers = List.filled(50, '');
   List<bool> _correctAnswers = List.filled(50, false);
@@ -78,6 +78,7 @@ class _QuizPageState extends State<QuizPage> {
         title: Text('Quiz Results'),
         content: Text(
           'You got $correctAnswers out of ${_questions.length} correct!',
+          style: TextStyle(color: Colors.teal),
         ),
         actions: [
           TextButton(
