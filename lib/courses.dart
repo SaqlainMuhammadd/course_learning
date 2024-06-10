@@ -42,8 +42,8 @@ class _coursesPageState extends State<coursesPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 250,
-                  width: 200,
+                  height: 200,
+                  width: 160,
                   decoration: BoxDecoration(
                     color: Colors.teal.shade100,
                     borderRadius: BorderRadius.circular(15),
@@ -60,8 +60,8 @@ class _coursesPageState extends State<coursesPage> {
                     children: [
                       Image.asset(
                         'assets/html.png',
-                        height: 120,
-                        width: 120,
+                        height: 100,
+                        width: 100,
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 10),
@@ -77,7 +77,7 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => htmlPage()));
+                                  builder: (context) => EnrollmentForm()));
                         },
                         child: Text(
                           'Enroll Now',
@@ -91,8 +91,8 @@ class _coursesPageState extends State<coursesPage> {
                   width: 15,
                 ),
                 Container(
-                  height: 250,
-                  width: 200,
+                  height: 200,
+                  width: 160,
                   decoration: BoxDecoration(
                     color: Colors.teal.shade100,
                     borderRadius: BorderRadius.circular(15),
@@ -109,8 +109,8 @@ class _coursesPageState extends State<coursesPage> {
                     children: [
                       Image.asset(
                         'assets/css.png',
-                        height: 120,
-                        width: 120,
+                        height: 100,
+                        width: 100,
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 10),
@@ -145,8 +145,8 @@ class _coursesPageState extends State<coursesPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 250,
-                  width: 200,
+                  height: 200,
+                  width: 160,
                   decoration: BoxDecoration(
                     color: Colors.teal.shade100,
                     borderRadius: BorderRadius.circular(15),
@@ -163,8 +163,8 @@ class _coursesPageState extends State<coursesPage> {
                     children: [
                       Image.asset(
                         'assets/js.png',
-                        height: 120,
-                        width: 120,
+                        height: 100,
+                        width: 100,
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 10),
@@ -194,8 +194,8 @@ class _coursesPageState extends State<coursesPage> {
                   width: 15,
                 ),
                 Container(
-                  height: 250,
-                  width: 200,
+                  height: 200,
+                  width: 160,
                   decoration: BoxDecoration(
                     color: Colors.teal.shade100,
                     borderRadius: BorderRadius.circular(15),
@@ -212,8 +212,8 @@ class _coursesPageState extends State<coursesPage> {
                     children: [
                       Image.asset(
                         'assets/java.png',
-                        height: 120,
-                        width: 120,
+                        height: 100,
+                        width: 100,
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 10),
@@ -248,8 +248,8 @@ class _coursesPageState extends State<coursesPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 250,
-                  width: 200,
+                  height: 200,
+                  width: 160,
                   decoration: BoxDecoration(
                     color: Colors.teal.shade100,
                     borderRadius: BorderRadius.circular(15),
@@ -266,8 +266,8 @@ class _coursesPageState extends State<coursesPage> {
                     children: [
                       Image.asset(
                         'assets/Python.png',
-                        height: 120,
-                        width: 120,
+                        height: 100,
+                        width: 100,
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 10),
@@ -297,8 +297,8 @@ class _coursesPageState extends State<coursesPage> {
                   width: 15,
                 ),
                 Container(
-                  height: 250,
-                  width: 200,
+                  height: 200,
+                  width: 160,
                   decoration: BoxDecoration(
                     color: Colors.teal.shade100,
                     borderRadius: BorderRadius.circular(15),
@@ -315,8 +315,8 @@ class _coursesPageState extends State<coursesPage> {
                     children: [
                       Image.asset(
                         'assets/Flutter.png',
-                        height: 120,
-                        width: 120,
+                        height: 100,
+                        width: 100,
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 10),
@@ -351,8 +351,8 @@ class _coursesPageState extends State<coursesPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 250,
-                  width: 200,
+                  height: 200,
+                  width: 160,
                   decoration: BoxDecoration(
                     color: Colors.teal.shade100,
                     borderRadius: BorderRadius.circular(15),
@@ -369,8 +369,8 @@ class _coursesPageState extends State<coursesPage> {
                     children: [
                       Image.asset(
                         'assets/C#.png',
-                        height: 120,
-                        width: 120,
+                        height: 100,
+                        width: 100,
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 10),
@@ -400,8 +400,8 @@ class _coursesPageState extends State<coursesPage> {
                   width: 15,
                 ),
                 Container(
-                  height: 250,
-                  width: 200,
+                  height: 200,
+                  width: 160,
                   decoration: BoxDecoration(
                     color: Colors.teal.shade100,
                     borderRadius: BorderRadius.circular(15),
@@ -418,8 +418,8 @@ class _coursesPageState extends State<coursesPage> {
                     children: [
                       Image.asset(
                         'assets/cpp.png',
-                        height: 120,
-                        width: 120,
+                        height: 100,
+                        width: 100,
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 10),
@@ -454,8 +454,8 @@ class _coursesPageState extends State<coursesPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 250,
-                  width: 200,
+                  height: 200,
+                  width: 160,
                   decoration: BoxDecoration(
                     color: Colors.teal.shade100,
                     borderRadius: BorderRadius.circular(15),
@@ -472,8 +472,8 @@ class _coursesPageState extends State<coursesPage> {
                     children: [
                       Image.asset(
                         'assets/dart.png',
-                        height: 120,
-                        width: 120,
+                        height: 100,
+                        width: 100,
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 10),
@@ -503,8 +503,8 @@ class _coursesPageState extends State<coursesPage> {
                   width: 15,
                 ),
                 Container(
-                  height: 250,
-                  width: 200,
+                  height: 200,
+                  width: 160,
                   decoration: BoxDecoration(
                     color: Colors.teal.shade100,
                     borderRadius: BorderRadius.circular(15),
@@ -521,8 +521,8 @@ class _coursesPageState extends State<coursesPage> {
                     children: [
                       Image.asset(
                         'assets/sql.png',
-                        height: 120,
-                        width: 120,
+                        height: 100,
+                        width: 100,
                         fit: BoxFit.cover,
                       ),
                       SizedBox(height: 10),

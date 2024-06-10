@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class javaQuizPage extends StatefulWidget {
+class htmlQuizPage extends StatefulWidget {
   @override
-  _javaQuizPageState createState() => _javaQuizPageState();
+  _htmlQuizPageState createState() => _htmlQuizPageState();
 }
 
-class _javaQuizPageState extends State<javaQuizPage> {
+class _htmlQuizPageState extends State<htmlQuizPage> {
   int _currentQuestionIndex = 0;
   List<String> _selectedAnswers = List.filled(50, '');
   List<bool> _correctAnswers = List.filled(50, false);

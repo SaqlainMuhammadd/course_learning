@@ -23,6 +23,110 @@ class _homePageScreenState extends State<homePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(size: 35, color: Colors.white),
+        centerTitle: true,
+        title: const Text(
+          '  Colde Mingle',
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
+        ),
+        backgroundColor: Colors.teal.shade400,
+        actions: [
+          Icon(
+            Icons.notifications_none_outlined,
+            size: 35,
+          )
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.teal,
+              ),
+              child: Text(
+                'Code Mingle',
+                style: TextStyle(color: Colors.white, fontSize: 30),
+              ),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.home,
+              ),
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.train,
+              ),
+              title: const Text('Courses'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.train,
+              ),
+              title: const Text('Categories'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.train,
+              ),
+              title: const Text('RoadMap'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.train,
+              ),
+              title: const Text('Quizs'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.train,
+              ),
+              title: const Text('Buy Book'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.train,
+              ),
+              title: const Text('Edit Profile'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.train,
+              ),
+              title: const Text('Logout'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -31,57 +135,6 @@ class _homePageScreenState extends State<homePageScreen> {
             Container(
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => CategoriesPage(),
-                                  ));
-                            },
-                            icon: Icon(
-                              Icons.menu,
-                              size: 40,
-                              color: Colors.white,
-                            )),
-                        SizedBox(
-                          width: 70,
-                        ),
-                        Text(
-                          'Code Mingle',
-                          style: TextStyle(fontSize: 25),
-                        ),
-                        SizedBox(
-                          width: 70,
-                        ),
-                        IconButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => NotificationPage(),
-                                  ));
-                            },
-                            icon: Icon(
-                              Icons.notifications_none_outlined,
-                              color: Colors.white,
-                              size: 35,
-                            )),
-                      ],
-                    ),
-                    height: 75,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: Colors.teal.shade400,
-                        borderRadius: BorderRadius.circular(20)),
-                  ),
                   SizedBox(
                     height: 25,
                   ),
@@ -97,7 +150,7 @@ class _homePageScreenState extends State<homePageScreen> {
                   ),
                   Container(
                     height: 60,
-                    width: 400,
+                    width: 350,
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white, width: 1),
@@ -126,7 +179,7 @@ class _homePageScreenState extends State<homePageScreen> {
                   ),
                 ],
               ),
-              height: 250,
+              height: 180,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -400,7 +453,7 @@ class _homePageScreenState extends State<homePageScreen> {
                   style: TextStyle(color: Colors.teal),
                 ),
                 SizedBox(
-                  width: 270,
+                  width: 180,
                 ),
                 InkWell(
                   onTap: () {
@@ -426,8 +479,8 @@ class _homePageScreenState extends State<homePageScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      height: 250,
-                      width: 200,
+                      height: 200,
+                      width: 160,
                       decoration: BoxDecoration(
                         color: Colors.teal.shade100,
                         borderRadius: BorderRadius.circular(15),
@@ -444,8 +497,8 @@ class _homePageScreenState extends State<homePageScreen> {
                         children: [
                           Image.asset(
                             'assets/Python.png',
-                            height: 120,
-                            width: 120,
+                            height: 100,
+                            width: 100,
                             fit: BoxFit.cover,
                           ),
                           SizedBox(height: 20),
@@ -468,8 +521,8 @@ class _homePageScreenState extends State<homePageScreen> {
                       width: 15,
                     ),
                     Container(
-                      height: 250,
-                      width: 200,
+                      height: 200,
+                      width: 160,
                       decoration: BoxDecoration(
                         color: Colors.teal.shade100,
                         borderRadius: BorderRadius.circular(15),
@@ -486,8 +539,8 @@ class _homePageScreenState extends State<homePageScreen> {
                         children: [
                           Image.asset(
                             'assets/Flutter.png',
-                            height: 120,
-                            width: 120,
+                            height: 100,
+                            width: 100,
                             fit: BoxFit.cover,
                           ),
                           SizedBox(height: 20),

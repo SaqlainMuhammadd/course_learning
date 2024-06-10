@@ -1,4 +1,5 @@
 import 'package:course_learning/auth/login.dart';
+import 'package:course_learning/courses/html.dart';
 import 'package:flutter/material.dart';
 
 class EnrollmentForm extends StatefulWidget {
@@ -85,21 +86,6 @@ class _EnrollmentFormState extends State<EnrollmentForm> {
               SizedBox(
                 height: 10,
               ),
-              // TextFormField(
-              //   decoration: InputDecoration(
-              //       labelText: 'Date of Birth',
-              //       border: OutlineInputBorder(
-              //           borderRadius: BorderRadius.circular(15))),
-              //   keyboardType: TextInputType.datetime,
-              //   onSaved: (value) {
-              //     if (value != null) {
-              //       dateOfBirth = DateTime.parse(value);
-              //     }
-              //   },
-              // ),
-              // SizedBox(
-              //   height: 10,
-              // ),
               DropdownButtonFormField<String>(
                 decoration: InputDecoration(
                     labelText: 'Gender',
@@ -141,24 +127,35 @@ class _EnrollmentFormState extends State<EnrollmentForm> {
               SizedBox(
                 height: 10,
               ),
-              // DropdownButtonFormField<String>(
-              //   decoration: InputDecoration(
-              //       labelText: 'Course Selection',
-              //       border: OutlineInputBorder(
-              //           borderRadius: BorderRadius.circular(15))),
-              //   items: ['HTML', 'CSS', 'JavaScript']
-              //       .map((label) => DropdownMenuItem(
-              //             child: Text(label),
-              //             value: label,
-              //           ))
-              //       .toList(),
-              //   onChanged: (value) {
-              //     setState(() {
-              //       courseSelection = value;
-              //     });
-              //   },
-              //   onSaved: (value) => courseSelection = value,
-              // ),
+              DropdownButtonFormField<String>(
+                decoration: InputDecoration(
+                    labelText: 'Course Selection',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15))),
+                items: [
+                  'HTML',
+                  'CSS',
+                  'JavaScript',
+                  'Flutter',
+                  'Dart',
+                  'Python',
+                  'Java',
+                  'SQL',
+                  'C++',
+                  'C#',
+                ]
+                    .map((label) => DropdownMenuItem(
+                          child: Text(label),
+                          value: label,
+                        ))
+                    .toList(),
+                onChanged: (value) {
+                  setState(() {
+                    courseSelection = value;
+                  });
+                },
+                onSaved: (value) => courseSelection = value,
+              ),
               SizedBox(
                 height: 10,
               ),
@@ -210,7 +207,7 @@ class _EnrollmentFormState extends State<EnrollmentForm> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => LoginPage(),
+                          builder: (context) => htmlPage(),
                         ));
                   },
                   child: Text('Submit'))

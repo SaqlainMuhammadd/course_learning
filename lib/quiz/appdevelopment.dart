@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class flutterQuizPage extends StatefulWidget {
+class appdevelopmentPage extends StatefulWidget {
   @override
-  _flutterQuizPageState createState() => _flutterQuizPageState();
+  _appdevelopmentPageState createState() => _appdevelopmentPageState();
 }
 
-class _flutterQuizPageState extends State<flutterQuizPage> {
+class _appdevelopmentPageState extends State<appdevelopmentPage> {
   int _currentQuestionIndex = 0;
   List<String> _selectedAnswers = List.filled(50, '');
   List<bool> _correctAnswers = List.filled(50, false);
@@ -110,62 +110,65 @@ class _flutterQuizPageState extends State<flutterQuizPage> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Text(
-                'Question ${_currentQuestionIndex + 1}/${_questions.length}',
-                style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.teal),
-              ),
-              SizedBox(height: 20),
-              Text(
-                _questions[_currentQuestionIndex].questionText,
-                style: TextStyle(fontSize: 18, color: Colors.teal),
-              ),
-              SizedBox(height: 20),
-              ..._questions[_currentQuestionIndex].options.map((option) {
-                return RadioListTile<String>(
-                  title: Text(
-                    option,
-                    style: TextStyle(
-                      color: _selectedAnswers[_currentQuestionIndex] == option
-                          ? (_questions[_currentQuestionIndex].correctAnswer ==
-                                  option
-                              ? Colors.green
-                              : Colors.red)
-                          : Colors.black,
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Text(
+                  'Question ${_currentQuestionIndex + 1}/${_questions.length}',
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.teal),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  _questions[_currentQuestionIndex].questionText,
+                  style: TextStyle(fontSize: 18, color: Colors.teal),
+                ),
+                SizedBox(height: 20),
+                ..._questions[_currentQuestionIndex].options.map((option) {
+                  return RadioListTile<String>(
+                    title: Text(
+                      option,
+                      style: TextStyle(
+                        color: _selectedAnswers[_currentQuestionIndex] == option
+                            ? (_questions[_currentQuestionIndex]
+                                        .correctAnswer ==
+                                    option
+                                ? Colors.green
+                                : Colors.red)
+                            : Colors.black,
+                      ),
+                    ),
+                    value: option,
+                    groupValue: _selectedAnswers[_currentQuestionIndex],
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedAnswers[_currentQuestionIndex] = value!;
+                        _correctAnswers[_currentQuestionIndex] =
+                            _questions[_currentQuestionIndex].correctAnswer ==
+                                value;
+                      });
+                    },
+                  );
+                }).toList(),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: _nextQuestion,
+                  child: Text(_currentQuestionIndex < _questions.length - 1
+                      ? 'Next'
+                      : 'Submit'),
+                  style: ElevatedButton.styleFrom(
+                    // primary: Colors.teal,
+                    padding: EdgeInsets.symmetric(vertical: 16.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
-                  value: option,
-                  groupValue: _selectedAnswers[_currentQuestionIndex],
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedAnswers[_currentQuestionIndex] = value!;
-                      _correctAnswers[_currentQuestionIndex] =
-                          _questions[_currentQuestionIndex].correctAnswer ==
-                              value;
-                    });
-                  },
-                );
-              }).toList(),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _nextQuestion,
-                child: Text(_currentQuestionIndex < _questions.length - 1
-                    ? 'Next'
-                    : 'Submit'),
-                style: ElevatedButton.styleFrom(
-                  // primary: Colors.teal,
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
