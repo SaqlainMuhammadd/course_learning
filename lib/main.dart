@@ -1,10 +1,17 @@
-import 'package:course_learning/auth/login.dart';
-import 'package:course_learning/auth/signup.dart';
-import 'package:course_learning/homepage.dart';
 import 'package:course_learning/splash.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+    apiKey: 'key',
+    appId: 'id',
+    messagingSenderId: 'sendid',
+    projectId: 'myapp',
+    storageBucket: 'myapp-b9yt18.appspot.com',
+  ));
   runApp(const MyApp());
 }
 

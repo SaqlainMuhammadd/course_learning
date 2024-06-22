@@ -1,5 +1,4 @@
 import 'package:course_learning/courses/fluttermodel.dart';
-import 'package:course_learning/courses/pythonmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';

@@ -1,11 +1,10 @@
-import 'package:course_learning/Notification/notification.dart';
-import 'package:course_learning/auth/enroll.dart';
 import 'package:course_learning/booksshop/books.dart';
 import 'package:course_learning/courses.dart';
+import 'package:course_learning/courses/flutter.dart';
+import 'package:course_learning/courses/python.dart';
 import 'package:course_learning/form/discussion.dart';
 import 'package:course_learning/profile.dart';
 import 'package:course_learning/quiz/quizpage.dart';
-import 'package:course_learning/widgets/category.dart';
 import 'package:course_learning/widgets/customsearchbar.dart';
 import 'package:course_learning/widgets/roadmap.dart';
 import 'package:flutter/cupertino.dart';
@@ -507,10 +506,10 @@ class _homePageScreenState extends State<homePageScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => EnrollmentForm()));
+                                      builder: (context) => pythonPage()));
                             },
                             child: Text(
-                              'Enroll Now',
+                              'Continue Now',
                               style: TextStyle(fontSize: 16),
                             ),
                           ),
@@ -549,10 +548,10 @@ class _homePageScreenState extends State<homePageScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => EnrollmentForm()));
+                                      builder: (context) => flutterModel()));
                             },
                             child: Text(
-                              'Enroll Now',
+                              'Continue Now',
                               style: TextStyle(fontSize: 16),
                             ),
                           ),

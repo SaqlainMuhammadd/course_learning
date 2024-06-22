@@ -20,23 +20,23 @@ class LoginPage extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: 30),
                 Container(
-                  height: 135,
-                  width: 300,
+                  height: 110,
+                  width: 220,
                   child: Image.asset(
                     'assets/authlogo.png',
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 2),
                 Text(
                   'Login',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 32,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 20),
                 Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
@@ -113,7 +113,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 24),
+                SizedBox(height: 0),
                 TextButton(
                   onPressed: () {
                     Navigator.push(context,

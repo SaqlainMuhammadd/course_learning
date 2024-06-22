@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "100403828715",
+    "project_id": "code-mingle-b1818",
+    "storage_bucket": "code-mingle-b1818.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100403828715:android:61c16ed924282aa8e06bae",
+        "android_client_info": {
+          "package_name": "com.example.course_learning"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh1lhPwg8I1wx4LnHrCfX1D9oIesFpqRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

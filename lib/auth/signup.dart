@@ -9,7 +9,7 @@ class SignUpPage extends StatelessWidget {
         fit: StackFit.expand,
         children: <Widget>[
           Container(
-            color: Colors.teal, // Background color
+            color: Colors.teal,
           ),
           SingleChildScrollView(
             child: Padding(
@@ -17,25 +17,23 @@ class SignUpPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(height: 30),
                   Container(
-                    height: 135,
-                    width: 300,
+                    height: 110,
+                    width: 220,
                     child: Image.asset(
                       'assets/authlogo.png',
                       fit: BoxFit.cover,
                     ),
                   ),
-                  SizedBox(height: 20),
                   Text(
                     'Sign Up',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 32,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 5),
                   Card(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
@@ -113,7 +111,7 @@ class SignUpPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 5),
                   TextButton(
                     onPressed: () {
                       // Navigate to the login page

@@ -1,4 +1,3 @@
-import 'package:course_learning/auth/enroll.dart';
 import 'package:course_learning/courses/charp.dart';
 import 'package:course_learning/courses/cplusplus.dart';
 import 'package:course_learning/courses/css.dart';
@@ -77,10 +76,10 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EnrollmentForm()));
+                                  builder: (context) => htmlPage()));
                         },
                         child: Text(
-                          'Enroll Now',
+                          'Continue Now',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -126,10 +125,10 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EnrollmentForm()));
+                                  builder: (context) => cssPage()));
                         },
                         child: Text(
-                          'Enroll Now',
+                          'Continue Now',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -180,10 +179,10 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EnrollmentForm()));
+                                  builder: (context) => jsPage()));
                         },
                         child: Text(
-                          'Enroll Now',
+                          'Continue Now',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -229,10 +228,10 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EnrollmentForm()));
+                                  builder: (context) => javaPage()));
                         },
                         child: Text(
-                          'Enroll Now',
+                          'Continue Now',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -283,10 +282,10 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EnrollmentForm()));
+                                  builder: (context) => pythonPage()));
                         },
                         child: Text(
-                          'Enroll Now',
+                          'Continue Now',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -332,10 +331,10 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EnrollmentForm()));
+                                  builder: (context) => flutterModel()));
                         },
                         child: Text(
-                          'Enroll Now',
+                          'Continue Now',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -386,10 +385,10 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EnrollmentForm()));
+                                  builder: (context) => csharpPage()));
                         },
                         child: Text(
-                          'Enroll Now',
+                          'Continue Now',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -435,10 +434,10 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EnrollmentForm()));
+                                  builder: (context) => cplusplusPage()));
                         },
                         child: Text(
-                          'Enroll Now',
+                          'Continue Now',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -489,10 +488,10 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EnrollmentForm()));
+                                  builder: (context) => dartPage()));
                         },
                         child: Text(
-                          'Enroll Now',
+                          'Continue Now',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -538,10 +537,10 @@ class _coursesPageState extends State<coursesPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EnrollmentForm()));
+                                  builder: (context) => sqlPage()));
                         },
                         child: Text(
-                          'Enroll Now',
+                          'Continue Now',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),

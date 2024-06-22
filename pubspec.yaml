@@ -42,7 +42,10 @@ dependencies:
   code_editor: ^2.1.0
   highlight_text: ^1.7.0
   provider: ^6.0.0
-  
+  firebase_core: ^2.31.1
+  firebase_auth: ^4.19.6
+  cloud_firestore: ^4.17.4
+  firebase_storage: ^11.7.6
 
 dev_dependencies:
   flutter_test:
