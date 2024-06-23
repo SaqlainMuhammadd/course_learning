@@ -1,4 +1,6 @@
+import 'package:course_learning/auth/login.dart';
 import 'package:course_learning/auth/signup.dart';
+import 'package:course_learning/firebase_services/splash_services.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -12,9 +14,12 @@ class _SplashScreenState extends State<SplashScreen>
   late AnimationController _animationController;
   late Animation<double> _animation;
 
+  SplashServices SplashScreen = SplashServices();
+
   @override
   void initState() {
     super.initState();
+    SplashScreen.isLogin(context);
 
     _animationController = AnimationController(
       duration: const Duration(seconds: 5),
@@ -31,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen>
     Timer(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => SignUpPage(),
+          builder: (context) => LoginPage(),
         ),
       );
     });
