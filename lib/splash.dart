@@ -1,5 +1,4 @@
 import 'package:course_learning/auth/login.dart';
-import 'package:course_learning/auth/signup.dart';
 import 'package:course_learning/firebase_services/splash_services.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -36,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen>
     Timer(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => LoginPage(),
+          builder: (context) => SignInPage(),
         ),
       );
     });
@@ -59,8 +58,8 @@ class _SplashScreenState extends State<SplashScreen>
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                height: 135,
-                width: 300,
+                height: 80,
+                width: 190,
                 child: Image.asset(
                   'assets/authlogo.png',
                   fit: BoxFit.cover,
