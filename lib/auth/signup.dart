@@ -184,7 +184,7 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
         obscureText: obscureText,
         keyboardType: keyboardType,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.teal),
         validator: (value) {
           if (value == null || value.isEmpty) {
             return 'Please enter $labelText';

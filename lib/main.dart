@@ -28,15 +28,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Code Mingle',
-      // initialRoute: '/login', // Adjust as per your initial route
-      // routes: {
-      //   '/login': (context) => SignInPage(),
-      //   '/profile': (context) => homePageScreen(),
-      //   // '/edit_profile': (context) => EditProfilePage(),
-      //   // '/achievements': (context) => AchievementsPage(),
-      //   // Add more routes as needed
-      // },
-      // Other configurations
       theme: ThemeData(
           textTheme: TextTheme(
               bodyMedium: TextStyle(

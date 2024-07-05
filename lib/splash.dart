@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen>
           opacity: _animation,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+            children: [
               Container(
                 height: 80,
                 width: 190,
