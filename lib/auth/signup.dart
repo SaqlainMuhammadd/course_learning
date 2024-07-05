@@ -1,3 +1,4 @@
+import 'package:course_learning/auth/login.dart';
 import 'package:course_learning/widgets/clipper.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,7 +9,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  final _formkey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
@@ -17,42 +18,54 @@ class _SignUpPageState extends State<SignUpPage> {
   bool _isLoading = false;
 
   void _signUp() async {
-    setState(() {
-      _isLoading = true;
-    });
-
-    try {
-      UserCredential userCredential =
-          await _auth.createUserWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-        // name: _nameController.text.trim(),
-      );
-      // Navigate to the next page or show success message
-      print('Sign up successful: ${userCredential.user?.email}');
-    } on FirebaseAuthException catch (e) {
-      print('Error: $e');
-      // Show error message
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Sign-Up Error'),
-          content: Text(
-            'Unknown error occurred',
-            style: TextStyle(color: Colors.teal),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: Text('OK'),
-            ),
-          ],
-        ),
-      );
-    } finally {
+    if (_formKey.currentState?.validate() ?? false) {
       setState(() {
-        _isLoading = false;
+        _isLoading = true;
       });
+
+      try {
+        UserCredential userCredential =
+            await _auth.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim(),
+        );
+        // Navigate to the next page or show success message
+        print('Sign up successful: ${userCredential.user?.email}');
+      } on FirebaseAuthException catch (e) {
+        print('Error: $e');
+        // Show error message
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Sign-Up Success'),
+            content: Text(
+              'Sign-Up Successful! Please Log In to Continue',
+              style: TextStyle(
+                  color: Colors.teal,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 15),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignInPage(),
+                          ));
+                    },
+                    child: Text('Signin')),
+              ),
+            ],
+          ),
+        );
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
   }
 
@@ -71,72 +84,75 @@ class _SignUpPageState extends State<SignUpPage> {
           Center(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Sign Up',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  SizedBox(height: 32),
-                  _buildTextField(
-                    controller: _nameController,
-                    labelText: 'Full Name',
-                    icon: Icons.person,
-                  ),
-                  SizedBox(height: 16),
-                  _buildTextField(
-                    controller: _emailController,
-                    labelText: 'Email',
-                    icon: Icons.email,
-                  ),
-                  SizedBox(height: 16),
-                  _buildTextField(
-                    controller: _passwordController,
-                    labelText: 'Password',
-                    icon: Icons.lock,
-                    obscureText: true,
-                  ),
-                  SizedBox(height: 16),
-                  _isLoading
-                      ? CircularProgressIndicator()
-                      : ElevatedButton(
-                          onPressed: () {
-                            // if (_formkey.currentState!.validate()) {
-                            _auth.createUserWithEmailAndPassword(
-                                email: _emailController.text.toString(),
-                                password: _passwordController.text.toString());
-                            // }
-                          },
-                          child: Text('Sign Up'),
-                          style: ElevatedButton.styleFrom(
-                            // primary: Colors.white,
-                            // onPrimary: Colors.teal,
-                            padding: EdgeInsets.symmetric(
-                              vertical: 16.0,
-                              horizontal: 32.0,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            elevation: 5,
-                          ),
+              child: SingleChildScrollView(
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: Image.asset('assets/authlogo.png'),
+                        height: 100,
+                      ),
+                      SizedBox(height: 20),
+                      Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
-                  SizedBox(height: 8),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      'Already have an account? Sign In',
-                      style: TextStyle(color: Colors.teal),
-                    ),
+                      ),
+                      SizedBox(height: 2),
+                      _buildTextField(
+                        controller: _nameController,
+                        labelText: 'Full Name',
+                        icon: Icons.person,
+                      ),
+                      SizedBox(height: 2),
+                      _buildTextField(
+                        controller: _emailController,
+                        labelText: 'Email',
+                        icon: Icons.email,
+                        keyboardType: TextInputType.emailAddress,
+                      ),
+                      SizedBox(height: 2),
+                      _buildTextField(
+                        controller: _passwordController,
+                        labelText: 'Password',
+                        icon: Icons.lock,
+                        obscureText: true,
+                      ),
+                      SizedBox(height: 16),
+                      _isLoading
+                          ? CircularProgressIndicator()
+                          : ElevatedButton(
+                              onPressed: _signUp,
+                              child: Text('Sign Up'),
+                              style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 16.0,
+                                  horizontal: 32.0,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                elevation: 5,
+                              ),
+                            ),
+                      SizedBox(height: 8),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          'Already have an account? Sign In',
+                          style: TextStyle(color: Colors.teal),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           ),
@@ -150,23 +166,32 @@ class _SignUpPageState extends State<SignUpPage> {
     required String labelText,
     required IconData icon,
     bool obscureText = false,
+    TextInputType keyboardType = TextInputType.text,
   }) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        prefixIcon: Icon(icon, color: Colors.white),
-        labelText: labelText,
-        labelStyle: TextStyle(color: Colors.white),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide.none,
+    return Card(
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          prefixIcon: Icon(icon, color: Colors.teal),
+          labelText: labelText,
+          labelStyle: TextStyle(color: Colors.teal),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide.none,
+          ),
+          filled: true,
+          fillColor: Colors.white.withOpacity(0.2),
         ),
-        filled: true,
-        fillColor: Colors.white.withOpacity(0.1),
+        obscureText: obscureText,
+        keyboardType: keyboardType,
+        style: TextStyle(color: Colors.white),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter $labelText';
+          }
+          return null;
+        },
       ),
-      obscureText: obscureText,
-      keyboardType: TextInputType.emailAddress,
-      style: TextStyle(color: Colors.white),
     );
   }
 }

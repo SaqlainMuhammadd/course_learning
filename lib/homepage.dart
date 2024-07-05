@@ -1,3 +1,4 @@
+import 'package:course_learning/achievement.dart';
 import 'package:course_learning/courses.dart';
 import 'package:course_learning/courses/html.dart';
 import 'package:course_learning/profile.dart';
@@ -30,7 +31,6 @@ class _homePageState extends State<homePage> {
     coursesPage(),
     RoadmapPage(),
     ProfilePage(),
-    htmlPage(),
   ];
 
   _changeTab(int index) {

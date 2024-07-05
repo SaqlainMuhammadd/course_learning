@@ -72,6 +72,11 @@ class _SignInPageState extends State<SignInPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Container(
+                    child: Image.asset('assets/authlogo.png'),
+                    height: 100,
+                  ),
+                  SizedBox(height: 20),
                   Text(
                     'Sign In',
                     style: TextStyle(
@@ -80,13 +85,13 @@ class _SignInPageState extends State<SignInPage> {
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 32),
+                  SizedBox(height: 2),
                   _buildTextField(
                     controller: _emailController,
                     labelText: 'Email',
                     icon: Icons.email,
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 2),
                   _buildTextField(
                     controller: _passwordController,
                     labelText: 'Password',
@@ -163,22 +168,24 @@ class _SignInPageState extends State<SignInPage> {
     required IconData icon,
     bool obscureText = false,
   }) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        prefixIcon: Icon(icon, color: Colors.white),
-        labelText: labelText,
-        labelStyle: TextStyle(color: Colors.white),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide.none,
+    return Card(
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          prefixIcon: Icon(icon, color: Colors.teal),
+          labelText: labelText,
+          labelStyle: TextStyle(color: Colors.teal),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide.none,
+          ),
+          filled: true,
+          fillColor: Colors.white.withOpacity(0.1),
         ),
-        filled: true,
-        fillColor: Colors.white.withOpacity(0.1),
+        obscureText: obscureText,
+        keyboardType: TextInputType.emailAddress,
+        style: TextStyle(color: Colors.white),
       ),
-      obscureText: obscureText,
-      keyboardType: TextInputType.emailAddress,
-      style: TextStyle(color: Colors.white),
     );
   }
 }

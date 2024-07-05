@@ -41,8 +41,14 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Password Reset Error'),
-          content: Text(e.message ?? 'Unknown error occurred'),
+          title: Text('Password Reset'),
+          content: Text(
+            'Password reset email sent successfully',
+            style: TextStyle(
+                color: Colors.teal,
+                fontSize: 15,
+                fontWeight: FontWeight.normal),
+          ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
@@ -76,6 +82,11 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Container(
+                    child: Image.asset('assets/authlogo.png'),
+                    height: 100,
+                  ),
+                  SizedBox(height: 20),
                   Text(
                     'Reset Password',
                     style: TextStyle(
@@ -84,7 +95,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 32),
+                  SizedBox(height: 2),
                   _buildTextField(
                     controller: _emailController,
                     labelText: 'Email',
@@ -134,22 +145,26 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
     required IconData icon,
     bool obscureText = false,
   }) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        prefixIcon: Icon(icon, color: Colors.white),
-        labelText: labelText,
-        labelStyle: TextStyle(color: Colors.white),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide.none,
+    return Card(
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          prefixIcon: Icon(icon, color: Colors.teal),
+          labelText: labelText,
+          labelStyle: TextStyle(
+            color: Colors.teal,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide.none,
+          ),
+          filled: true,
+          fillColor: Colors.white.withOpacity(0.1),
         ),
-        filled: true,
-        fillColor: Colors.white.withOpacity(0.1),
+        obscureText: obscureText,
+        keyboardType: TextInputType.emailAddress,
+        style: TextStyle(color: Colors.white),
       ),
-      obscureText: obscureText,
-      keyboardType: TextInputType.emailAddress,
-      style: TextStyle(color: Colors.white),
     );
   }
 }

@@ -53,8 +53,8 @@ class _BooksPageState extends State<BooksPage> {
   Widget _buildCourseContainer(
       String imageAsset, String title, VoidCallback onPressed) {
     return Container(
-      height: 250,
-      width: 200,
+      height: 200,
+      width: 160,
       decoration: BoxDecoration(
         color: Colors.teal.shade100,
         borderRadius: BorderRadius.circular(15),
@@ -71,8 +71,8 @@ class _BooksPageState extends State<BooksPage> {
         children: [
           Image.asset(
             imageAsset,
-            height: 120,
-            width: 120,
+            height: 90,
+            width: 60,
             fit: BoxFit.cover,
           ),
           SizedBox(height: 10),
@@ -88,7 +88,7 @@ class _BooksPageState extends State<BooksPage> {
             onPressed: () {},
             child: Text(
               'Download Now',
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 12),
             ),
           ),
         ],

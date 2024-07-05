@@ -1,3 +1,7 @@
+import 'package:course_learning/achievement.dart';
+import 'package:course_learning/auth/login.dart';
+import 'package:course_learning/auth/signup.dart';
+import 'package:course_learning/editprofile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,24 +15,35 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.teal,
         title: Text(
-          'Profile',
+          '  Profile',
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(20),
-            child: Icon(Icons.settings),
-          ),
+              padding: const EdgeInsets.all(0),
+              child: IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EditProfilePage(),
+                        ));
+                  },
+                  icon: Icon(Icons.settings))),
+          SizedBox(
+            width: 15,
+          )
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              height: 380,
+              height: 345,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -42,7 +57,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: [
                   CircleAvatar(
                     radius: 60,
-                    backgroundImage: AssetImage('assets/profile.jpg'),
+                    child: Icon(
+                      Icons.person,
+                      size: 60,
+                    ),
                   ),
                   SizedBox(height: 30),
                   Text(
@@ -158,7 +176,15 @@ class _ProfilePageState extends State<ProfilePage> {
                 Navigator.of(context).pop();
                 // Perform logout operation
               },
-              child: Text('Logout'),
+              child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignInPage(),
+                        ));
+                  },
+                  child: Text('Logout')),
             ),
           ],
         );
@@ -188,7 +214,15 @@ class _ProfilePageState extends State<ProfilePage> {
                 Navigator.of(context).pop();
                 // Perform delete account operation
               },
-              child: Text('Delete'),
+              child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUpPage(),
+                        ));
+                  },
+                  child: Text('Delete')),
               style: TextButton.styleFrom(
                   // primary: Colors.red
                   ),
@@ -196,121 +230,6 @@ class _ProfilePageState extends State<ProfilePage> {
           ],
         );
       },
-    );
-  }
-}
-
-class EditProfilePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Text(
-          'Edit Profile',
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
-        backgroundColor: Colors.teal,
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Name',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Occopation',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Email',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Phone',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Bio',
-                border: OutlineInputBorder(),
-              ),
-              maxLines: 3,
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // Implement save profile functionality
-              },
-              child: Text('Save Changes'),
-              style: ElevatedButton.styleFrom(
-                  // primary: Colors.teal,
-                  ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class AchievementsPage extends StatelessWidget {
-  final List<String> achievements = [
-    'Completed Flutter Course',
-    'Completed HTML Course',
-    'Completed CSS Course',
-    'Completed JavaScript Course',
-    'Completed Python Course',
-    'Completed Java Course',
-    'Completed Flutter Course',
-    'Completed HTML Course',
-    'Completed CSS Course',
-    'Completed JavaScript Course',
-    'Completed Python Course',
-    'Completed Java Course',
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Text(
-          'Achievements',
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
-        backgroundColor: Colors.teal,
-      ),
-      body: ListView.builder(
-        itemCount: achievements.length,
-        itemBuilder: (context, index) {
-          return Card(
-            margin: EdgeInsets.all(10),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                achievements[index],
-                style: TextStyle(color: Colors.teal, fontSize: 18),
-              ),
-            ),
-          );
-        },
-      ),
     );
   }
 }

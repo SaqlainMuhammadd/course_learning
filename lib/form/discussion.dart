@@ -7,10 +7,10 @@ class DiscussionScreen extends StatefulWidget {
 
 class _DiscussionScreenState extends State<DiscussionScreen> {
   final List<Map<String, String>> _messages = [
-    {'user': 'User1', 'text': 'Hello, how are you?'},
-    {'user': 'User2', 'text': 'I am good, thanks!'},
-    {'user': 'User1', 'text': 'What are you working on?'},
-    {'user': 'User2', 'text': 'Just a Flutter project.'},
+    {'user': 'Ayesha', 'text': 'Hello, how are you?'},
+    {'user': 'Maryam', 'text': 'I am good, thanks!'},
+    {'user': 'Fatima', 'text': 'What are you working on?'},
+    {'user': 'Sunny', 'text': 'Just a Flutter project.'},
   ];
 
   final TextEditingController _messageController = TextEditingController();

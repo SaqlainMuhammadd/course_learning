@@ -1,10 +1,12 @@
+import 'package:course_learning/achievement.dart';
 import 'package:course_learning/booksshop/books.dart';
 import 'package:course_learning/courses.dart';
 import 'package:course_learning/courses/flutter.dart';
 import 'package:course_learning/courses/python.dart';
+import 'package:course_learning/editprofile.dart';
 import 'package:course_learning/form/discussion.dart';
-import 'package:course_learning/profile.dart';
 import 'package:course_learning/quiz/quizpage.dart';
+import 'package:course_learning/widgets/category.dart';
 import 'package:course_learning/widgets/customsearchbar.dart';
 import 'package:course_learning/widgets/roadmap.dart';
 import 'package:flutter/cupertino.dart';
@@ -62,20 +64,28 @@ class _homePageScreenState extends State<homePageScreen> {
             ),
             ListTile(
               leading: Icon(
-                Icons.train,
+                Icons.video_label_rounded,
               ),
               title: const Text('Courses'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => coursesPage(),
+                    ));
               },
             ),
             ListTile(
               leading: Icon(
-                Icons.train,
+                Icons.category,
               ),
               title: const Text('Categories'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CategoriesPage(),
+                    ));
               },
             ),
             ListTile(
@@ -84,39 +94,55 @@ class _homePageScreenState extends State<homePageScreen> {
               ),
               title: const Text('RoadMap'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RoadmapPage(),
+                    ));
               },
             ),
             ListTile(
               leading: Icon(
-                Icons.train,
+                Icons.quiz_outlined,
               ),
               title: const Text('Quizs'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => quizPage(),
+                    ));
               },
             ),
             ListTile(
               leading: Icon(
-                Icons.train,
+                Icons.shopping_cart_checkout_outlined,
               ),
               title: const Text('Buy Book'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BooksPage(),
+                    ));
               },
             ),
             ListTile(
               leading: Icon(
-                Icons.train,
+                Icons.person_3_outlined,
               ),
               title: const Text('Edit Profile'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EditProfilePage(),
+                    ));
               },
             ),
             ListTile(
               leading: Icon(
-                Icons.train,
+                Icons.logout_outlined,
               ),
               title: const Text('Logout'),
               onTap: () {
@@ -135,21 +161,21 @@ class _homePageScreenState extends State<homePageScreen> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 25,
+                    height: 15,
                   ),
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      'Good Morning Zoii!',
+                      'Good Morning!',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
                   SizedBox(
-                    height: 25,
+                    height: 15,
                   ),
                   Container(
-                    height: 60,
-                    width: 350,
+                    height: 50,
+                    width: 330,
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white, width: 1),
@@ -178,7 +204,7 @@ class _homePageScreenState extends State<homePageScreen> {
                   ),
                 ],
               ),
-              height: 180,
+              height: 150,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(

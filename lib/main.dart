@@ -1,4 +1,9 @@
+import 'package:course_learning/achievement.dart';
+import 'package:course_learning/auth/login.dart';
+import 'package:course_learning/editprofile.dart';
+import 'package:course_learning/profile.dart';
 import 'package:course_learning/splash.dart';
+import 'package:course_learning/widgets/homepagescreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +28,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Code Mingle',
+      // initialRoute: '/login', // Adjust as per your initial route
+      // routes: {
+      //   '/login': (context) => SignInPage(),
+      //   '/profile': (context) => homePageScreen(),
+      //   // '/edit_profile': (context) => EditProfilePage(),
+      //   // '/achievements': (context) => AchievementsPage(),
+      //   // Add more routes as needed
+      // },
+      // Other configurations
       theme: ThemeData(
           textTheme: TextTheme(
               bodyMedium: TextStyle(
