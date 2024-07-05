@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 
-class EditProfilePage extends StatelessWidget {
+class EditProfilePage extends StatefulWidget {
+  @override
+  _EditProfilePageState createState() => _EditProfilePageState();
+}
+
+class _EditProfilePageState extends State<EditProfilePage> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController occupationController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController bioController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +29,7 @@ class EditProfilePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+              controller: nameController,
               decoration: InputDecoration(
                 labelText: 'Name',
                 border: OutlineInputBorder(),
@@ -25,13 +37,15 @@ class EditProfilePage extends StatelessWidget {
             ),
             SizedBox(height: 16),
             TextField(
+              controller: occupationController,
               decoration: InputDecoration(
-                labelText: 'Occopation',
+                labelText: 'Occupation',
                 border: OutlineInputBorder(),
               ),
             ),
             SizedBox(height: 16),
             TextField(
+              controller: emailController,
               decoration: InputDecoration(
                 labelText: 'Email',
                 border: OutlineInputBorder(),
@@ -39,13 +53,7 @@ class EditProfilePage extends StatelessWidget {
             ),
             SizedBox(height: 16),
             TextField(
-              decoration: InputDecoration(
-                labelText: 'Phone',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16),
-            TextField(
+              controller: bioController,
               decoration: InputDecoration(
                 labelText: 'Bio',
                 border: OutlineInputBorder(),
@@ -55,16 +63,48 @@ class EditProfilePage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Implement save profile functionality
+                saveProfile();
               },
               child: Text('Save Changes'),
-              style: ElevatedButton.styleFrom(
-                  // primary: Colors.teal,
-                  ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  void saveProfile() {
+    // Extract values from controllers
+    String name = nameController.text;
+    String occupation = occupationController.text;
+    String email = emailController.text;
+    String phone = phoneController.text;
+    String bio = bioController.text;
+
+    // Here you would implement the logic to save the data
+    // For demonstration, we'll just print the values
+    print('Name: $name');
+    print('Occupation: $occupation');
+    print('Email: $email');
+    print('Phone: $phone');
+    print('Bio: $bio');
+
+    // Optionally, you can show a snackbar or navigate back to the previous screen
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Profile saved successfully'),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    // Clean up controllers when the widget is disposed
+    nameController.dispose();
+    occupationController.dispose();
+    emailController.dispose();
+    phoneController.dispose();
+    bioController.dispose();
+    super.dispose();
   }
 }
