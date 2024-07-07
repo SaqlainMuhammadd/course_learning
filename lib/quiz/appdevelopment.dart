@@ -51,7 +51,6 @@ class _appdevelopmentPageState extends State<appdevelopmentPage> {
       correctAnswer: 'A UI element',
     ),
     // Add more questions here up to 50
-    // ... Add remaining questions
   ];
 
   void _nextQuestion() {

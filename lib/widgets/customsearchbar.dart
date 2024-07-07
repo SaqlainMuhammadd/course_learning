@@ -23,8 +23,6 @@ class _SearchScreenState extends State<SearchScreen> {
     "Python",
     "Java",
     "Flutter",
-    "Web development",
-    "App Development",
     "C#",
     "C++",
     "Dart",

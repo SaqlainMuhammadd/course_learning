@@ -233,46 +233,6 @@ class _homePageScreenState extends State<homePageScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => DiscussionScreen(),
-                              ));
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Container(
-                                child: Icon(
-                                  Icons.chat_outlined,
-                                  size: 40,
-                                  color: Colors.white,
-                                ),
-                                height: 70,
-                                width: 70,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.yellow.shade900,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 6),
-                                child: Text(
-                                  'Form',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 14),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 43,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
                                 builder: (context) => coursesPage(),
                               ));
                         },
@@ -337,6 +297,46 @@ class _homePageScreenState extends State<homePageScreen> {
                                 padding: const EdgeInsets.only(top: 6),
                                 child: Text(
                                   'Quiz',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 43,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DiscussionScreen(),
+                              ));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Container(
+                                child: Icon(
+                                  Icons.chat_outlined,
+                                  size: 40,
+                                  color: Colors.white,
+                                ),
+                                height: 70,
+                                width: 70,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.yellow.shade900,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 6),
+                                child: Text(
+                                  'Form',
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 14),
                                 ),
