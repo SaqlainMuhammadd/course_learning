@@ -3,7 +3,6 @@ import 'package:course_learning/auth/signup.dart';
 import 'package:course_learning/homepage.dart';
 import 'package:course_learning/widgets/clipper.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class SignInPage extends StatefulWidget {
   @override
@@ -13,31 +12,57 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   bool _isLoading = false;
 
-  void _signIn() async {
+  void _signIn() {
     setState(() {
       _isLoading = true;
     });
 
-    try {
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+
+    if (_validateEmail(email) && _validatePassword(password)) {
+      // Show success message
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Success'),
+          content: Text(
+            'Congrats, Login Successful!',
+            style: TextStyle(
+              color: Colors.teal,
+              fontWeight: FontWeight.normal,
+              fontSize: 14,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => homePage()),
+                );
+              },
+              child: Text('Continue to Home Page'),
+            ),
+          ],
+        ),
       );
-      // Navigate to the next page or show success message
-      print('Sign in successful: ${userCredential.user?.email}');
-    } on FirebaseAuthException catch (e) {
-      print('Error: $e');
+    } else {
       // Show error message
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Sign-In Error'),
+          title: Text('Error'),
           content: Text(
-            'Unknown error occurred',
-            style: TextStyle(color: Colors.teal),
+            'Please enter a valid email and password.',
+            style: TextStyle(
+              color: Colors.teal,
+              fontWeight: FontWeight.normal,
+              fontSize: 14,
+            ),
           ),
           actions: [
             TextButton(
@@ -47,11 +72,21 @@ class _SignInPageState extends State<SignInPage> {
           ],
         ),
       );
-    } finally {
-      setState(() {
-        _isLoading = false;
-      });
     }
+
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  bool _validateEmail(String email) {
+    final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+    return emailRegex.hasMatch(email);
+  }
+
+  bool _validatePassword(String password) {
+    return password.length >=
+        6; // Example condition: password should be at least 6 characters long
   }
 
   @override
@@ -102,18 +137,9 @@ class _SignInPageState extends State<SignInPage> {
                   _isLoading
                       ? CircularProgressIndicator()
                       : ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => homePage(),
-                              ),
-                            );
-                          },
+                          onPressed: _signIn,
                           child: Text('Sign In'),
                           style: ElevatedButton.styleFrom(
-                            // primary: Colors.white,
-                            // onPrimary: Colors.teal,
                             padding: EdgeInsets.symmetric(
                               vertical: 16.0,
                               horizontal: 32.0,
@@ -184,7 +210,7 @@ class _SignInPageState extends State<SignInPage> {
         ),
         obscureText: obscureText,
         keyboardType: TextInputType.emailAddress,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.teal),
       ),
     );
   }
