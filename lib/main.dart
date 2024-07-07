@@ -1,9 +1,4 @@
-import 'package:course_learning/achievement.dart';
-import 'package:course_learning/auth/login.dart';
-import 'package:course_learning/editprofile.dart';
-import 'package:course_learning/profile.dart';
 import 'package:course_learning/splash.dart';
-import 'package:course_learning/widgets/homepagescreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

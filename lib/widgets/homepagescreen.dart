@@ -1,4 +1,5 @@
 import 'package:course_learning/achievement.dart';
+import 'package:course_learning/auth/login.dart';
 import 'package:course_learning/booksshop/books.dart';
 import 'package:course_learning/courses.dart';
 import 'package:course_learning/courses/flutter.dart';
@@ -146,7 +147,11 @@ class _homePageScreenState extends State<homePageScreen> {
               ),
               title: const Text('Logout'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignInPage(),
+                    ));
               },
             ),
           ],

@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:course_learning/courses/charp.dart';
+import 'package:course_learning/courses/cplusplus.dart';
+import 'package:course_learning/courses/css.dart';
+import 'package:course_learning/courses/dart.dart';
+import 'package:course_learning/courses/flutter.dart';
+import 'package:course_learning/courses/html.dart';
+import 'package:course_learning/courses/java.dart';
+import 'package:course_learning/courses/js.dart';
+import 'package:course_learning/courses/python.dart';
+import 'package:course_learning/courses/sql.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -14,7 +24,11 @@ class _SearchScreenState extends State<SearchScreen> {
     "Java",
     "Flutter",
     "Web development",
-    "App Development"
+    "App Development",
+    "C#",
+    "C++",
+    "Dart",
+    "SQL"
   ];
   List<String> searchResults = [];
   String query = '';
@@ -26,6 +40,58 @@ class _SearchScreenState extends State<SearchScreen> {
           .where((item) => item.toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
+  }
+
+  void onResultTap(String result) {
+    Widget page;
+    switch (result.toLowerCase()) {
+      case 'html3':
+        page = htmlPage();
+        break;
+      case 'css3':
+        page = cssPage();
+        break;
+      case 'javascript':
+        page = jsPage();
+        break;
+      case 'python':
+        page = pythonPage();
+        break;
+      case 'java':
+        page = javaPage();
+        break;
+      case 'flutter':
+        page = flutterModel();
+        break;
+      case 'c#':
+        page = csharpPage();
+        break;
+      case 'c++':
+        page = cplusplusPage();
+        break;
+      case 'dart':
+        page = dartPage();
+        break;
+      case 'sql':
+        page = sqlPage();
+        break;
+      default:
+        page = Scaffold(
+          appBar: AppBar(
+            title: Text('Error'),
+          ),
+          body: Center(
+            child: Text('Page not found'),
+          ),
+        );
+        break;
+    }
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => page,
+      ),
+    );
   }
 
   @override
@@ -48,6 +114,7 @@ class _SearchScreenState extends State<SearchScreen> {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(searchResults[index]),
+                  onTap: () => onResultTap(searchResults[index]),
                 );
               },
             ),

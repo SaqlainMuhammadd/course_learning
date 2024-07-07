@@ -173,8 +173,11 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
-                // Perform logout operation
+                Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignInPage(),
+                        ));
               },
               child: InkWell(
                   onTap: () {
